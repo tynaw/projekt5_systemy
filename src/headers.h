@@ -14,11 +14,14 @@ typedef struct message{
 
 
 int queue_access(key_t keyval, int msg_flags){
+	
     int msqid;
+    
     if( (msqid = msgget(keyval, msg_flags) == -1) ){
         perror("msgget");
         return -1;
     }
+    
     return msqid;
 }
 
